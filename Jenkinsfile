@@ -2,7 +2,7 @@ pipeline {
     stages {
         stage('Test') {
             agent {
-                pytest { image 'qnib/pytest'}
+                label 'pytest'
             }
             steps {
                 echo 'Testing..'
