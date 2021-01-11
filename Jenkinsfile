@@ -9,14 +9,14 @@ pipeline {
         stage('Test') {
             steps {
                 container('pytest') {
-                    echo 'pytest'
+                    sh 'pytest'
                 }
             }
         }
         stage('Build') {
             steps {
                 container('docker') {
-                    echo 'docker build -t flask-app .'
+                    sh 'docker build -t flask-app .'
                 }
             }
         }
