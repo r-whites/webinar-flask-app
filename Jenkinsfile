@@ -1,24 +1,30 @@
 pipeline {
+    agent {
+        kubernetes {
+            defaultContainer 'jnlp'
+            yamlFile 'build.yaml'
+        }
+    }
     stages {
         stage('Test') {
-            agent {
-                label 'pytest'
-            }
             steps {
-                echo 'Testing..'
+                container('pytest') {
+                    echo 'Testing ..'
+                }
             }
         }
         stage('Build') {
-            agent {
-                docker { image 'docker'}
-            }
             steps {
-                echo 'Building..'
+                container('docker') {
+                    echo 'Building ..'
+                }
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                container('docker') {
+                    sh 'kubectl get pods -n jenkins'
+                }
             }
         }
     }
