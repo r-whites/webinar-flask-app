@@ -9,10 +9,8 @@ pipeline {
         stage('Test') {
             steps {
                 container('pytest') {
-                    dir('app') {
-                        sh 'pip install -r requirements.txt'
-                        sh 'pytest'
-                    }
+                    sh 'pip install -r requirements.txt'
+                    sh 'pytest'
                 }
             }
         }
