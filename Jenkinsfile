@@ -25,8 +25,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                    sh 'kubectl get pods -n jenkins'
-                }
+                sh 'kubectl get pods -n jenkins'
             }
         }
     }
