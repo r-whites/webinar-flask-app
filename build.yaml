@@ -5,6 +5,7 @@ metadata:
     some-label: pod
 spec:
   containers:
+
     - name: pytest
       image: qnib/pytest
       command:
@@ -13,24 +14,30 @@ spec:
       volumeMounts:
         - name: m2
           mountPath: /root/.m2
-    - name: docker
-      image: docker:19.03
-      command:
-        - cat
-      tty: true
-      privileged: true
+
+    - name: docker-client
+      image: docker:19.03.1
+      command: ['sleep', '99d']
+      env:
+        - name: DOCKER_HOST
+          value: tcp://localhost:2375
+
+    - name: docker-daemon
+      image: docker:19.03.1-dind
+      env:
+        - name: DOCKER_TLS_CERTDIR
+          value: ""
+      securityContext:
+        privileged: true
       volumeMounts:
-        - name: dockersock
-          mountPath: /var/run/docker.sock
-    - name: helm
-      image: lachlanevenson/k8s-helm:v3.1.1
-      command:
-        - cat
-      tty: true
+          - name: cache
+            mountPath: /var/lib/docker
+
   volumes:
-    - name: dockersock
+    - name: cache
       hostPath:
-        path: /var/run/docker.sock
+        path: /tmp
+        type: Directory
     - name: m2
       hostPath:
         path: /root/.m2

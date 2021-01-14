@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                container('docker') {
+                container('docker-client') {
                     sh 'docker build -t flask-app .'
                 }
             }
