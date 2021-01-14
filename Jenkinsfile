@@ -26,7 +26,9 @@ pipeline {
         stage('Deploy') {
             steps {
                 container('kubectl') {
-                    sh 'kubectl get pods -n jenkins'
+                    dir('app') {
+                        sh 'kubectl apply -f deployment.yaml'
+                    }
                 }
             }
         }
