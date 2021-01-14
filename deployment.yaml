@@ -19,6 +19,9 @@ metadata:
   name: hello-python
 spec:
   replicas: 4
+  selector:
+    matchLabels:
+      name: hello-python
   template:
     metadata:
       labels:
