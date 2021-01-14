@@ -26,9 +26,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 container('kubectl') {
-                    dir('app') {
-                        sh 'kubectl apply -f deployment.yaml'
-                    }
+                    sh 'kubectl apply -f deployment.yaml'
                 }
             }
         }
