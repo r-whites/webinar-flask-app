@@ -19,7 +19,8 @@ pipeline {
         stage('Build') {
             steps {
                 container('docker-client') {
-                    sh 'docker build -t flask-app .'
+                    sh 'docker build . -t localhost:32000/webinar:flask-app'
+                    ah 'docker push localhost:32000/webinar'
                 }
             }
         }
