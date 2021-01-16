@@ -20,7 +20,7 @@ pipeline {
             steps {
                 container('docker-client') {
                     sh 'docker build . -t localhost:32000/webinar:flask-app'
-                    ah 'docker push localhost:32000/webinar'
+                    sh 'docker push localhost:32000/webinar'
                 }
             }
         }
