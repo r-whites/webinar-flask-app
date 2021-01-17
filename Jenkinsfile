@@ -20,9 +20,7 @@ pipeline {
         stage('Build') {
             steps {
                 container('docker-client') {
-                    sh 'docker build . -t webinar:flask-app'
-                    sh 'docker save webinar > webinar.tar'
-                    sh 'microk8s ctr image import webinar.tar'
+                    sh 'docker build . -t 193.204.79.237:3200/webinar:flask-app'
                 }
             }
         }
