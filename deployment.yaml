@@ -29,6 +29,6 @@ spec:
     spec:
       containers:
       - name: hello-python
-        image: 193.204.79.23:32000/webinar:flask-app
+        image: 193.204.79.237:32000/flask-app:registry
         ports:
         - containerPort: 5000
