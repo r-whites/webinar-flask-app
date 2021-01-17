@@ -21,6 +21,7 @@ pipeline {
             steps {
                 container('docker-client') {
                     sh 'docker build . -t 193.204.79.237:3200/webinar:flask-app'
+                    sh 'docker push 193.204.79.237:3200/webinar'
                 }
             }
         }
