@@ -32,8 +32,8 @@ spec:
       securityContext:
         privileged: true
       volumeMounts:
-          - name: cache
-            mountPath: /var/lib/docker
+        - name: cache
+          mountPath: /var/lib/docker
 
     - name: kubectl
       image: lachlanevenson/k8s-kubectl:v1.17.17
@@ -41,8 +41,8 @@ spec:
         - name: DOCKER_HOST
           value: tcp://localhost:2375
       volumeMounts:
-          - name: cache
-            mountPath: /var/lib/docker
+        - name: cache
+          mountPath: /var/lib/docker
       command:
         - cat
       tty: true
