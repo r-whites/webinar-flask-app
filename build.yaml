@@ -7,7 +7,7 @@ spec:
   containers:
 
     - name: pytest
-      image: qnib/pytest
+      image: qnib/pytest:latest
       command:
         - cat
       tty: true
