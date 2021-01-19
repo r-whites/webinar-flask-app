@@ -11,8 +11,8 @@ pipeline {
                 container('pytest') {
                     dir('app') {
                         sh "echo 'Testing ..'"
-                        // sh 'pip install -r requirements.txt'
-                        // sh 'pytest'
+                        sh 'pip install -r requirements.txt'
+                        sh 'pytest'
                     }
                 }
             }
@@ -27,8 +27,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 container('docker-client') {
-                    sh 'docker ps'
                     sh 'docker run -d -p 5000:5000 devops:flask-app'
+                    sh 'docker ps'
                 }
             }
         }
