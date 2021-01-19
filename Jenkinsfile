@@ -27,14 +27,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 container('docker-client') {
+                    sh 'docker ps'
                     sh 'docker run -d -p 5000:5000 devops:flask-app'
-                }
-            }
-        }
-        stage('Verify') {
-            steps {
-                container('curl') {
-                    sh 'curl --help'
                 }
             }
         }
