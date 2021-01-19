@@ -20,15 +20,15 @@ pipeline {
         stage('Build') {
             steps {
                 container('docker-client') {
-                    sh 'docker build . -t 192.168.64.6:32000/flask-app:registry'
-                    sh 'docker push 192.168.64.6:32000/flask-app'
+                    sh 'docker build . -t devops:flask-app'
+                    sh 'docker push devops:flask-app'
                 }
             }
         }
         stage('Deploy') {
             steps {
-                container('kubectl') {
-                    sh 'kubectl apply -f deployment.yaml'
+                container('docker-client') {
+                    sh 'docker run -p 5000:5000 devops:flask-app'
                 }
             }
         }
