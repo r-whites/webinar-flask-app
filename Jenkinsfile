@@ -34,7 +34,7 @@ pipeline {
         stage('Verify') {
             steps {
                 container('curl') {
-                    sh 'curl -L http://localhost:5000/'
+                    sh 'curl -v http://localhost:5000/'
                 }
             }
         }
