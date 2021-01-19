@@ -24,9 +24,8 @@ spec:
 
     - name: docker-daemon
       image: docker:19.03.1-dind
+      command: ["--insecure-registry=192.168.64.6:32000"]
       env:
-        - name: DOCKER_OPTS
-          value: "--insecure-registry=192.168.64.6:3200"
         - name: DOCKER_TLS_CERTDIR
           value: ""
       securityContext:
