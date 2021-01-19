@@ -20,8 +20,8 @@ pipeline {
         stage('Build') {
             steps {
                 container('docker-client') {
-                    sh 'docker build . -t 193.204.79.237:32000/flask-app:registry'
-                    sh 'docker push 193.204.79.237:32000/flask-app'
+                    sh 'docker build . -t 192.168.64.6:32000/flask-app:registry'
+                    sh 'docker push 192.168.64.6:32000/flask-app'
                 }
             }
         }
