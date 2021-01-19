@@ -10,7 +10,6 @@ pipeline {
             steps {
                 container('pytest') {
                     dir('app') {
-                        sh "echo 'Testing ..'"
                         sh 'pip install -r requirements.txt'
                         sh 'pytest'
                     }
