@@ -34,7 +34,7 @@ pipeline {
         stage('Verify') {
             steps {
                 container('curl') {
-                    sh 'curl http://127.0.0.1:5000'
+                    sh 'curl --help'
                 }
             }
         }
