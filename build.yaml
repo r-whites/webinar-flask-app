@@ -18,14 +18,12 @@ spec:
     - name: docker-client
       image: docker:19.03.1
       command: ['sleep', '99d']
-      args: ["--insecure-registry=192.168.64.6:32000"]
       env:
         - name: DOCKER_HOST
           value: tcp://localhost:2375
 
     - name: docker-daemon
       image: docker:19.03.1-dind
-      args: ["--insecure-registry=192.168.64.6:32000"]
       env:
         - name: DOCKER_TLS_CERTDIR
           value: ""
