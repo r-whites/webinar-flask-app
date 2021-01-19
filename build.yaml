@@ -46,6 +46,13 @@ spec:
         - cat
       tty: true
 
+    - name: curl
+      image: curlimages/curl:7.74.0
+      command:
+        - cat
+      tty: true
+      
+
   volumes:
     - name: cache
       hostPath:

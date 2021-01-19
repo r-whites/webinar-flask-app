@@ -28,6 +28,12 @@ pipeline {
             steps {
                 container('docker-client') {
                     sh 'docker run -d -p 5000:5000 devops:flask-app'
+                }
+            }
+        }
+        stage('Verify') {
+            steps {
+                container('curl') {
                     sh 'curl -L http://localhost:5000/'
                 }
             }
