@@ -33,21 +33,6 @@ spec:
         - name: cache
           mountPath: /var/lib/docker
       tty: true
-
-    - name: kubectl
-      image: lachlanevenson/k8s-kubectl:v1.17.17
-      env:
-        - name: DOCKER_HOST
-          value: tcp://localhost:2375
-      volumeMounts:
-        - name: cache
-          mountPath: /var/lib/docker
-      command:
-        - cat
-      tty: true
-
-    - name: curl
-      image: curlimages/curl:7.74.0
       
 
   volumes:
