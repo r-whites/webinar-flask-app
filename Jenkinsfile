@@ -34,7 +34,7 @@ pipeline {
         stage('Verify') {
             steps {
                 container('curl') {
-                    sh 'curl -L -v http://127.0.0.1:5000'
+                    sh 'curl http://127.0.0.1:5000'
                 }
             }
         }
