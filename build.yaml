@@ -28,7 +28,7 @@ spec:
         - name: DOCKER_TLS_CERTDIR
           value: ""
         - name: DOCKER_INSECURE_REGISTRY
-          value: "--insecure-registry 193.204.79.237:32000"
+          value: "--insecure-registry 192.168.64.6:32000"
       securityContext:
         privileged: true
       volumeMounts:
