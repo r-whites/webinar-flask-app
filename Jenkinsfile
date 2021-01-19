@@ -21,7 +21,6 @@ pipeline {
             steps {
                 container('docker-client') {
                     sh 'docker build . -t devops:flask-app'
-                    sh 'docker push devops:flask-app'
                 }
             }
         }
